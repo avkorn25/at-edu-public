@@ -1,12 +1,12 @@
 package steps;
 
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import cucumber.api.java.ru.И;
 import cucumber.api.java.ru.Пусть;
 import edu.DriverInit;
 import edu.ObjectMapper;
-import org.junit.After;
 import org.junit.Assert;
-import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -36,7 +36,7 @@ public class BaseSteps {
     @И("Нажата кнопка \"(.*)\"")
     public static void clickButton(String buttonName) throws Exception {
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        WebElement webElement = wait.until(ExpectedConditions.presenceOfElementLocated(ObjectMapper.getElementLocatorByName(buttonName)));
+        WebElement webElement = wait.until(ExpectedConditions.elementToBeClickable(ObjectMapper.getElementLocatorByName(buttonName)));
         webElement.click();
     }
 

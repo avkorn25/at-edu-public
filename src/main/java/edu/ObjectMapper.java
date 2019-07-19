@@ -9,12 +9,12 @@ public class ObjectMapper {
     private static Map<String, By> objectMap = new HashMap<>();
 
     static {
-        objectMap.put("Поиск", By.name(""));
-        objectMap.put("Кнопка поиска", By.name("btnOk"));
+        objectMap.put("Поле поиска", By.name("q"));
+        objectMap.put("Кнопка поиска", By.name("btnK"));
     }
 
     public static By getElementLocatorByName(String name) throws Exception {
-        if (objectMap.containsKey(name)) {
+        if (!objectMap.containsKey(name)) {
             throw new Exception("Неизвестный элемент " + name);
         } else {
             return objectMap.get(name);
